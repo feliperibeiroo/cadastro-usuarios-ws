@@ -6,7 +6,6 @@ import usuariosController from './controllers/usuariosController'
 //Security
 import oauth from './security/oauth'
 import http from 'http'
-//Swagger
 
 import { createUsuarioTableIfNotExists } from './repositories/usuarioRepository'
 createUsuarioTableIfNotExists()
