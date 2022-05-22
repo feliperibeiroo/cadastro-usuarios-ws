@@ -3,9 +3,12 @@ import Knex from 'knex'
 const config = process.env.NODE_ENV==='production' ? {
   client: 'pg',
   connection: {
-    connectionString: process.env.DATABASE_URL,
-    ssl: false
-  }
+    host : process.env.POSTGRES_HOST,
+    port : process.env.POSTGRES_PORT,
+    user : process.env.POSTGRES_USER,
+    password : process.env.POSTGRES_PASSWORD,
+    database : process.env.POSTGRES_DATABASE
+}
 } : {
   client: 'pg',
     connection: {
