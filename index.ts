@@ -7,7 +7,6 @@ import usuariosController from './controllers/usuariosController'
 import oauth from './security/oauth'
 import http from 'http'
 //Swagger
-import swaggerUi from 'swagger-ui-express'
 
 import { createUsuarioTableIfNotExists } from './repositories/usuarioRepository'
 createUsuarioTableIfNotExists()
