@@ -16,6 +16,8 @@ const config = process.env.NODE_ENV==='production' ? {
       database : 'postgres'
   }
 }
+console.log(config);
+
 const knex = Knex(config)
 
 export default knex
