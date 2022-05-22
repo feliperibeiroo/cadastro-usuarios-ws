@@ -1,6 +1,9 @@
 import 'dotenv/config'
 import Knex from 'knex'
-const config = {
+const config = process.env.ENVIRONMENT!='production' ? {
+  client: 'pg',
+  connection: process.env.DATABASE_URL
+} : {
   client: 'pg',
     connection: {
       host : process.env.POSTGRES_URL || '0.0.0.0',
