@@ -2,7 +2,10 @@ import 'dotenv/config'
 import Knex from 'knex'
 const config = process.env.NODE_ENV==='production' ? {
   client: 'pg',
-  connection: process.env.DATABASE_URL
+    connection: {
+        connectionString: process.env.DATABASE_URL,
+        ssl: false
+    }
 } : {
   client: 'pg',
     connection: {
