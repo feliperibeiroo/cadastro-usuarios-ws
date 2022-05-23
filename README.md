@@ -16,5 +16,5 @@ Em seguida, executar os seguintes comandos para subir o servidor local de desenv
 ```
 cd cadastro-usuarios-ws
 yarn install
-yarn dev
+yarn start
 ```
