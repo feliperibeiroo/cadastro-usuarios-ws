@@ -4,7 +4,7 @@ const config = process.env.NODE_ENV==='production' ? {
   client: 'pg',
     connection: {
         connectionString: process.env.DATABASE_URL,
-        ssl: false
+        ssl: true
     }
 } : {
   client: 'pg',

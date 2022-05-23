@@ -9,7 +9,6 @@ import http from 'http'
 
 import { createUsuarioTableIfNotExists } from './repositories/usuarioRepository'
 createUsuarioTableIfNotExists()
-console.log(process.env.DATABASE_URL);
 
 const PORT: number = parseInt(process.env.PORT as string)
 const HOST = process.env.HOST as string
