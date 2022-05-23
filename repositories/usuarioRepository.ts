@@ -1,29 +1,30 @@
 import 'dotenv/config'
 import Knex from 'knex'
-const config = process.env.NODE_ENV==='production' ? {
-  client: 'pg',
-    connection: {
-        connectionString: process.env.DATABASE_URL,
-        ssl: true
-    }
-} : {
-  client: 'pg',
-    connection: {
-      host : process.env.POSTGRES_URL || '0.0.0.0',
-      port : 5432,
-      user : 'postgres',
-      password : process.env.POSTGRES_PASSWORD,
-      database : 'postgres'
+const parse = require("pg-connection-string").parse;
+
+var pgConfig:any = {}
+if (process.env.NODE_ENV==='production') {
+  pgConfig = parse(process.env.DATABASE_URL);
+  pgConfig.ssl = { rejectUnauthorized: false }
+} else { 
+  pgConfig =  {
+    host : process.env.POSTGRES_URL || '0.0.0.0',
+    port : 5432,
+    user : 'postgres',
+    password : process.env.POSTGRES_PASSWORD,
+    database : 'postgres'
   }
 }
-console.log(config);
 
-const knex = Knex(config)
+const db = Knex({
+  client: "pg",
+  connection: pgConfig,
+});
 
-export default knex
+export default db
 
 export function createUsuarioTableIfNotExists(): void {
-  knex.schema.createTableIfNotExists('usuarios', function (table) {
+  db.schema.createTableIfNotExists('usuarios', function (table) {
     table.increments('id');
     table.string('nome');
     table.string('email').unique();
