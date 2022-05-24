@@ -1,4 +1,4 @@
-import 'dotenv/config'
+require('dotenv').config()
 import Knex from 'knex'
 const parse = require("pg-connection-string").parse;
 
@@ -19,9 +19,7 @@ if (process.env.NODE_ENV==='production') {
 const db = Knex({
   client: "pg",
   connection: pgConfig,
-});
-
-export default db
+})
 
 export function createUsuarioTableIfNotExists(): void {
   db.schema.createTableIfNotExists('usuarios', function (table) {
