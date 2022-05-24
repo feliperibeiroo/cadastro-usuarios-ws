@@ -8,11 +8,11 @@ if (process.env.NODE_ENV==='production') {
   pgConfig.ssl = { rejectUnauthorized: false }
 } else { 
   pgConfig =  {
-    host : process.env.POSTGRES_URL || '0.0.0.0',
+    host : process.env.POSTGRES_URL || '127.0.0.1',
     port : 5432,
-    user : 'postgres',
+    user : process.env.POSTGRES_USER,
     password : process.env.POSTGRES_PASSWORD,
-    database : 'postgres'
+    database : process.env.POSTGRES_DB
   }
 }
 
@@ -20,6 +20,8 @@ const db = Knex({
   client: "pg",
   connection: pgConfig,
 })
+
+export default db
 
 export function createUsuarioTableIfNotExists(): void {
   db.schema.createTableIfNotExists('usuarios', function (table) {

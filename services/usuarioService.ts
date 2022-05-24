@@ -1,4 +1,3 @@
-import { Type } from 'typescript';
 import usuario from '../models/usuario'
 import usuarioRequest from '../models/requests/usuarioRequest'
 import usuarioEditRequest from '../models/requests/usuarioEditRequest'
