@@ -18,3 +18,12 @@ cd cadastro-usuarios-ws
 yarn install
 yarn start
 ```
+
+## Executar o projeto no Docker
+
+Para executar o projeto no docker, executar os seguintes comandos:
+```
+cd cadastro-usuarios-ws
+docker build -t cadastro-usuarios-ws .
+docker run -p 8080:8080 cadastro-usuarios-ws
+```
