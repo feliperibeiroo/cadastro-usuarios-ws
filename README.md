@@ -2,6 +2,17 @@
 
 Projeto backend do Cadastro de Usuários.
 
+## Tecnologias utilizadas
+- Node.js
+- Typescript
+- JsonWebToken
+- Knex (Query Builder)
+- Express
+- Dotenv
+- Nodemon
+- Bcrypt
+- Body-parser
+
 ## Variáveis de ambiente
 - PORT: Variável que configura a porta a ser usada para servir a aplicação.
 - NODE_ENV: Variável que define o ambiente de execução da aplicação. Assume os valores <b>development</b> e <b>production</b>.
