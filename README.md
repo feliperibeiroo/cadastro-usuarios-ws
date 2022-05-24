@@ -1,4 +1,5 @@
 # cadastro-usuarios-ws
+<img src="https://img.shields.io/badge/Node.js-brightgreen"> <img src="https://img.shields.io/badge/Typescript-9cf">
 
 Projeto backend do Cadastro de Usuários.
 
